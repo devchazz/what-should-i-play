@@ -1,28 +1,43 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Header :title='app.title'/>
+    <Container :subTitle='app.subTitle'/>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Header from './components/Header.vue'
+import Container from './components/Container.vue'
 
 export default {
   name: 'App',
+  
+  data(){
+    return {
+      app : {
+        title: 'What should I play?',
+        subTitle: 'Have too many options? I can help you!'
+      }
+    }
+  },
+
   components: {
-    HelloWorld
+    Header,
+    Container
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+  @import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+  *{
+    padding: 0;
+    margin: 0;
+  }
+  #app{
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 1px;
+    /* TIRA DPS SERIO TIRA */
+    padding: 20px;
+  }
 </style>

@@ -1,23 +1,37 @@
 <template>
-  <div>
-    <h3>Options:</h3>
-    <div v-for="(e, i) in options" :key="i">
-      <Option 
-        :name="options[i]" 
-        :index="i+1" 
-        :functionClose="removeOption"
-      />
-    </div>
-
+  <div id="container-list">
+    <h3>Add a Option:</h3>
+    <hr/>
+    <!--Form:-->
     <div>
-      <input type="text" id="newOptionName">
-      <button @click="addOption">+</button>
+      <input type="text" autocomplete="off" placeholder="Option name" id="input-add-option">
+      <button id="btn-add-option" @click="addOption">Add option</button>
     </div>
+    
+    <hr/>
 
-    <button v-if="!answer" @click="draw">Ask the computer</button>
-    <div v-if="answer">
-      <p>{{answer}}</p>
-      <button @click="reset">Try again</button>
+    <div class="flex-column">
+      <!--List of options:-->
+      <div>
+        <h3>List of Options:</h3>
+        <hr/>
+        <div v-for="(e, i) in options" :key="i">
+          <Option 
+            :name="options[i]" 
+            :index="i+1" 
+            :functionClose="()=>{removeOption(i)}"
+          />
+        </div>
+      </div>
+      <!--Result:-->
+      <div>
+        <hr/>
+        <button v-if="!answer" id="btn-draw" @click="draw">Ask the computer</button>
+        <div v-if="answer">
+          <p>{{answer}}</p>
+          <button id="btn-reset" @click="reset">Try again</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -44,11 +58,11 @@ export default {
     },
     //Add a option in the options array
     addOption(){
-      let newOptionValue = document.getElementById('newOptionName').value
+      let newOptionValue = document.getElementById('input-add-option').value
       let newOption = newOptionValue
       this.options.push(newOption)
       //Clear the form
-      document.getElementById('newOptionName').value = ''
+      document.getElementById('input-add-option').value = ''
     },
     //Reset the answer and let the user try again:
     reset(){
@@ -63,6 +77,45 @@ export default {
 
 </script>
 
-<style>
-
+<style scoped>
+  /* Containers: */
+  #container-list{
+    border: 1px solid black;
+    min-height: 300px;
+    width: 80%;
+    margin: auto;
+    border-radius: 10px;
+  }
+  #container-list p{
+    font-size: 1.2em;
+  }
+  .flex-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 300px;
+  }
+  /* Inputs: */
+  #input-add-option{
+    font-size: 1.1em;
+    margin: 10px;
+  }
+  /* Buttons: */
+  #btn-add-option{
+    font-size: 1.1em;
+  }
+  #btn-draw{
+    font-size: 1.1em;
+    margin: 10px;
+  }
+  #btn-reset{
+    font-size: 1.1em;
+    margin: 10px;
+  }
+  /* Responsive: */
+  @media only screen and (max-width: 600px) {
+    #container-list {
+      width: 95%;
+    }
+  }
 </style>

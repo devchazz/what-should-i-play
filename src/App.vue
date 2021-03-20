@@ -16,7 +16,7 @@ export default {
     return {
       app : {
         title: 'What should I play?',
-        subTitle: 'Have too many options? I can help you!'
+        subTitle: 'Have too many games to play? I can help you!'
       }
     }
   },
@@ -33,11 +33,13 @@ export default {
   *{
     padding: 0;
     margin: 0;
+    box-sizing: border-box;
   }
   #app{
     font-family: 'Nunito', sans-serif;
     letter-spacing: 1px;
-    /* TIRA DPS SERIO TIRA */
-    padding: 20px;
+    text-align: center;
+    font-size: 1.2em;
+    min-height: 100vh;
   }
 </style>

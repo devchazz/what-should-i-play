@@ -1,13 +1,17 @@
 <template>
   <div id="app">
-    <Header :title='app.title'/>
-    <Container :subTitle='app.subTitle'/>
+    <div class="h-90">
+      <Header :title='app.title'/>
+      <ListOptions :subTitle='app.subTitle'/>
+    </div>
+    <Footer/>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue'
-import Container from './components/Container.vue'
+import ListOptions from './components/List-options'
+import Footer from './components/Footer.vue'
 
 export default {
   name: 'App',
@@ -16,14 +20,15 @@ export default {
     return {
       app : {
         title: 'What should I play?',
-        subTitle: 'Have too many games to play? I can help you!'
+        subTitle: 'Have too many options? I can help you!'
       }
     }
   },
 
   components: {
     Header,
-    Container
+    ListOptions,
+    Footer
   }
 }
 </script>
@@ -36,10 +41,14 @@ export default {
     box-sizing: border-box;
   }
   #app{
-    font-family: 'Nunito', sans-serif;
+    background-color: #EEEEEE;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     letter-spacing: 1px;
     text-align: center;
     font-size: 1.2em;
     min-height: 100vh;
+  }
+  .h-90{
+    min-height: 90vh;
   }
 </style>

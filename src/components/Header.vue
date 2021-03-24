@@ -1,7 +1,7 @@
 <template>
   <header>
     <h1>{{ title }}</h1>
-    <nav><a href="">GitHub</a></nav>
+    <nav><a href="https://github.com/devchazz/what-should-i-play">GitHub</a></nav>
   </header>
 </template>
 

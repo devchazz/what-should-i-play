@@ -1,6 +1,6 @@
 # What Should I Play?
 
-This app was created by devChazz using Vue.js
+Created by devChazz using Vue.js
 
 MIT License
 

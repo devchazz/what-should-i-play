@@ -4,8 +4,6 @@ This app was created by devChazz using Vue.js
 
 License: MIT
 
-You can use the app now clicking on the link: https://keen-pasteur-9fed77.netlify.app/
-
 ## Project setup
 
 ```
